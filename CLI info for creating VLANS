@@ -1,0 +1,201 @@
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/2
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/3
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/4
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/5
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/6
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/7
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/8
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/7
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/5
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/4
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/3
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/2
+Switch(config-if)#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/4 (10), with Switch FastEthernet0/1 (1).
+
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/2
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/2
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/3
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/4 (10), with Switch FastEthernet0/1 (1).
+
+Switch(config-if)#
+Switch(config-if)#exit
+Switch(config)#interface FastEthernet0/4
+Switch(config-if)#exit
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#exit
+
+
+
+
+
+
+
+
+
+Switch con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Switch>enable
+Switch#configure ter
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/4 (10), with Switch FastEthernet0/1 (1).
+minal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#configure terminal
+                ^
+% Invalid input detected at '^' marker.
+	
+Switch(config)#
+Switch(config)#
+Switch(config)#interface FastEthernet0/4
+Switch(config-if)#
+Switch(config-if)#
+Switch(config-if)#switchport access vlan 1
+Switch(config-if)#exit
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+exit
+
+
+
+
+
+
+
+
+
+Switch con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#config t
+                ^
+% Invalid input detected at '^' marker.
+	
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#
+Switch(config)#vlan 40
+Switch(config-vlan)#name sales
+Switch(config-vlan)#exit
+Switch(config)#interface range fa0/13 - 16
+Switch(config-if-range)#switchport mode access
+Switch(config-if-range)#switchport access vlan 40
+Switch(config-if-range)#exit
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/4, Fa0/17, Fa0/18, Fa0/19
+                                                Fa0/20, Fa0/21, Fa0/22, Fa0/23
+                                                Fa0/24, Gig0/1, Gig0/2
+10   HR                               active    Fa0/1
+20   VLAN0020                         active    Fa0/2, Fa0/5, Fa0/6, Fa0/7
+                                                Fa0/8
+30   IT                               active    Fa0/3, Fa0/9, Fa0/10, Fa0/11
+                                                Fa0/12
+40   sales                            active    Fa0/13, Fa0/14, Fa0/15, Fa0/16
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+Switch#
+Switch#
