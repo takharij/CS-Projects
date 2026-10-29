@@ -1,0 +1,78 @@
+import json
+import re
+from pathlib import Path
+
+THREAT_FEED = "threat_feed.json"
+FIREWALL_LOG = "firewall.log"
+
+IP_REGEX = r"\b(?:\d{1,3}\.){3}\d{1,3}\b"
+
+
+def load_feed():
+    print("[*] Loading threat intelligence...")
+    with open(THREAT_FEED, "r") as file:
+        data = json.load(file)
+
+    indicators = set(data["malicious_ips"])
+
+    print(f"[*] Indicators Loaded: {len(indicators)}")
+    print()
+
+    return indicators
+
+
+def scan_log(indicators):
+    print("[*] Reading firewall.log...")
+    print()
+
+    matches = []
+
+    with open(FIREWALL_LOG, "r", errors="replace") as logfile:
+        for line_number, line in enumerate(logfile, start=1):
+            ips = re.findall(IP_REGEX, line)
+
+            for ip in ips:
+                if ip in indicators:
+                    matches.append((line_number, ip, line.strip()))
+
+    return matches
+
+
+def report(matches):
+    print("============================")
+    print(" IOC Scan Report")
+    print("============================")
+
+    if not matches:
+        print("No indicators found.")
+        return
+
+    for line, ip, entry in matches:
+        print()
+        print("IOC Match Found")
+        print(f"Line : {line}")
+        print(f"IP   : {ip}")
+        print(f"Log  : {entry}")
+
+    print()
+    print(f"Total Matches: {len(matches)}")
+
+
+def main():
+    if not Path(THREAT_FEED).exists():
+        print("Threat feed missing.")
+        return
+
+    if not Path(FIREWALL_LOG).exists():
+        print("Firewall log missing.")
+        return
+
+    indicators = load_feed()
+
+    matches = scan_log(indicators)
+
+    report(matches)
+
+
+if __name__ == "__main__":
+    main()
