@@ -71,8 +71,6 @@ This repo documents the build so it can be rebuilt, extended, and used as a port
    └──────────┘ └──────┘ └─────────┘ └──────────┘ └────────────────┘
 ```
 
-> **Note:** Fill in your own VLANs/subnets below. Document the actual segmentation you configured in UniFi (e.g. a dedicated lab VLAN isolated from your trusted/home network) so the topology is reproducible.
-
 | Segment | VLAN ID | Subnet | Purpose |
 |---|---|---|---|
 | Management | VLAN 30 | /24 | Proxmox / UniFi management |
@@ -88,8 +86,6 @@ Proxmox VE runs on the Dell Micro PC and hosts all lab VMs.
 - **Host:** Dell Micro PC
 - **Hypervisor:** Proxmox VE
 - **Networking:** Linux bridges mapped to the lab network; pfSense VM acts as the gateway/IDS for the isolated lab segment.
-
-> Document your bridge layout (e.g. `vmbr0` for management, `vmbr1` for the isolated lab) and which NICs/VLANs each bridge is tied to.
 
 ---
 
