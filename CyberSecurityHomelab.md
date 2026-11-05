@@ -213,15 +213,6 @@ medusa -h <ubuntu-ip> -u <user> -P <wordlist> -M ssh
 
 ---
 
-## Lessons Learned
-
-Document takeaways as you go — this section is often what hiring managers read most closely.
-
-- What did each tool catch, and what did it miss?
-- Did Suricata alert in IDS mode? Would IPS mode have blocked it?
-- How quickly did the brute force surface in Security Onion?
-- What tuning reduced false positives?
-
 ---
 
 ## Roadmap
