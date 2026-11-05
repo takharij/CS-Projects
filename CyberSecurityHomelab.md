@@ -75,9 +75,9 @@ This repo documents the build so it can be rebuilt, extended, and used as a port
 
 | Segment | VLAN ID | Subnet | Purpose |
 |---|---|---|---|
-| Management | `TODO` | `TODO` | Proxmox / UniFi management |
-| Lab | `TODO` | `TODO` | Isolated VM lab network |
-| Trusted | `TODO` | `TODO` | Home / personal devices |
+| Management | VLAN 30 | /24 | Proxmox / UniFi management |
+| Lab | VLAN 20 | /24 | Isolated VM lab network |
+| Trusted | VLAN 10 | /24 | Home / personal devices |
 
 ---
 
